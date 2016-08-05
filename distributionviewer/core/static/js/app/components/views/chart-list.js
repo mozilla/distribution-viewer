@@ -6,9 +6,9 @@ export class ChartList extends React.Component {
   render() {
     return (
       <section className="chart-list">
-        {this.props.items.map(chart => {
+        {this.props.items.map((chart, index) => {
           return (
-            <ChartContainer key={chart.slug} width={350} height={250} link={true} chartName={chart.name} />
+            <ChartContainer key={index} width={350} height={250} link={true} chartName={chart.name} />
           );
         })}
       </section>
