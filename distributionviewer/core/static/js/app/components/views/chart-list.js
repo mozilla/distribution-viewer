@@ -17,5 +17,5 @@ export class ChartList extends React.Component {
 }
 
 ChartList.propTypes = {
-  items: React.PropTypes.object.isRequired,
+  items: React.PropTypes.array.isRequired,
 }

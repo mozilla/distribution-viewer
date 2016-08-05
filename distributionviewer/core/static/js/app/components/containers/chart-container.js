@@ -12,7 +12,7 @@ class ChartContainer extends React.Component {
 
   render() {
     return (
-      <Chart item={this.props.item} isDataReady={this.props.isDataReady} chartName={this.props.chartName} />
+      <Chart item={this.props.item} isDataReady={this.props.isDataReady} chartName={this.props.chartName} {...this.props} />
     );
   }
 }
