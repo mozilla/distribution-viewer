@@ -78,7 +78,10 @@ export class Chart extends React.Component {
 }
 
 Chart.propTypes = {
+  chartName: React.PropTypes.string.isRequired,
   height: React.PropTypes.number.isRequired,
+  isDataReady: React.PropTypes.bool.isRequired,
+  item: React.PropTypes.object.isRequired,
   link: React.PropTypes.bool.isRequired,
   width: React.PropTypes.number.isRequired,
 }

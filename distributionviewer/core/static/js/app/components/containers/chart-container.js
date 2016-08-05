@@ -17,6 +17,12 @@ class ChartContainer extends React.Component {
   }
 }
 
+ChartContainer.propTypes = {
+  chartName: React.PropTypes.string.isRequired,
+  isDataReady: React.PropTypes.bool.isRequired,
+  item: React.PropTypes.object.isRequired,
+}
+
 const mapStateToProps = function(store) {
   return {
     isDataReady: store.metricState.isDataReady,
