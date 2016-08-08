@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { Chart } from '../views/chart';
-import * as metricApi from '../../api/metric-api';
 
 
 class ChartContainer extends React.Component {
