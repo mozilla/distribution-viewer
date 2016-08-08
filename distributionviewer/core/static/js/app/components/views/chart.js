@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router';
+import axios from 'axios';
+
 
 import MG from 'metrics-graphics';
+import * as metricApi from '../../api/metric-api';
 
 
 function formatData(item) {
@@ -57,17 +60,13 @@ function generateChart(name, chart, width, height) {
 
 export class Chart extends React.Component {
   componentDidMount() {
-    if (this.props.isDataReady) {
-      //generateChart(this.props.chartName, this.props.item, this.props.width, this.props.height);
-    }
+    // TODO: We need to do more here about managing isFetching.
+    axios.get(metricApi.endpoints.GET_METRIC + this.props.chartName).then(response => {
+      generateChart(this.props.chartName, response.data, this.props.width, this.props.height);
+    });
   }
   render() {
     var chart = <div className={this.props.chartName} />;
-
-    if (this.props.isDataReady) {
-      console.log('dataReady:', this.props.chartName, this.props.item);
-      generateChart(this.props.chartName, this.props.item, this.props.width, this.props.height);
-    }
 
     if (this.props.link) {
       return <Link to="/chart/1/">{chart}</Link>;

@@ -6,13 +6,9 @@ import * as metricApi from '../../api/metric-api';
 
 
 class ChartContainer extends React.Component {
-  componentDidMount() {
-    metricApi.getMetric(this.props.chartName);
-  }
-
   render() {
     return (
-      <Chart item={this.props.item} isDataReady={this.props.isDataReady} chartName={this.props.chartName} {...this.props} />
+      <Chart isDataReady={this.props.isDataReady} chartName={this.props.chartName} {...this.props} />
     );
   }
 }
@@ -23,6 +19,7 @@ ChartContainer.propTypes = {
   item: React.PropTypes.object.isRequired,
 }
 
+// TODO: Everything below should now be irrelevant yet it is.
 const mapStateToProps = function(store) {
   return {
     isDataReady: store.metricState.isDataReady,

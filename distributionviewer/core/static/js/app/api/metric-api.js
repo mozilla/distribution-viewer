@@ -11,7 +11,7 @@ const mockEndpoints = {
 };
 
 // TODO: Check node environment to set this.
-const endpoints = mockEndpoints;
+export const endpoints = mockEndpoints;
 
 // Fetch list of metrics.
 export function getMetrics() {
