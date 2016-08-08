@@ -47,13 +47,13 @@ function generateChart(name, chart, width, height) {
     axes_not_compact: false,
 
     // x-axis
-    x_mouseover: data => 'x: ' + data.x + '%',
+    x_mouseover: data => 'x: ' + refLabels[data.x],
     xax_format: d => refLabels[d],
     xax_count: formattedData.length,
 
     // y-axis
     max_y: 100,
-    y_mouseover: data => '   y: ' + data.y + '%',
+    y_mouseover: data => '   y: ' + data.y.toFixed(4) + '%',
   });
   /* eslint-enable camelcase */
 }
