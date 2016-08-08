@@ -31,7 +31,6 @@ export function getMetric(name) {
   store.dispatch(gettingMetric());
 
   return axios.get(endpoints.GET_METRIC + name).then(response => {
-    console.log('single metric api: ', response.data);
     store.dispatch(getMetricSuccess(response.data));
     return response;
   }).catch(response => {
