@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router';
 import axios from 'axios';
 
-
 import MG from 'metrics-graphics';
 import * as metricApi from '../../api/metric-api';
 
