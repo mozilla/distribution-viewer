@@ -1,8 +1,7 @@
 import axios from 'axios';
 import store from '../store';
 import {
-  gettingMetrics, getMetricsSuccess, getMetricsFailure,
-  gettingMetric, getMetricSuccess, getMetricFailure
+  gettingMetrics, getMetricsSuccess, getMetricsFailure
 } from '../actions/metric-actions';
 
 const prodEndpoints = {
@@ -27,19 +26,6 @@ export function getMetrics() {
   }).catch(response => {
     console.error(response);
     store.dispatch(getMetricsFailure(response.status))
-    return response;
-  });
-}
-
-export function getMetric(name) {
-  store.dispatch(gettingMetric());
-
-  return axios.get(`${endpoints.GET_METRIC}${name}/`).then(response => {
-    store.dispatch(getMetricSuccess(response.data));
-    return response;
-  }).catch(response => {
-    console.error(response);
-    store.dispatch(getMetricFailure(response.status));
     return response;
   });
 }
