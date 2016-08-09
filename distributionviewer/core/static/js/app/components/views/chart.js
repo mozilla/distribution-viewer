@@ -69,7 +69,7 @@ export class Chart extends React.Component {
     var chart = <div className={this.props.chartName} />;
 
     if (this.props.link) {
-      return <Link to={`/chart/${this.props.chartName}/`}>{chart}</Link>
+      return <Link to={`/metric/${this.props.chartName}/`}>{chart}</Link>
     } else {
       return chart;
     }
