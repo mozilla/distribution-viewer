@@ -65,11 +65,12 @@ export class Chart extends React.Component {
       generateChart(this.props.chartName, response.data, this.props.width, this.props.height);
     });
   }
+
   render() {
     var chart = <div className={this.props.chartName} />;
 
     if (this.props.link) {
-      return <Link to="/chart/1/">{chart}</Link>;
+      return <Link to={`/chart/${this.props.chartName}/`}>{chart}</Link>
     } else {
       return chart;
     }
