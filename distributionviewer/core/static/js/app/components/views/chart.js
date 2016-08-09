@@ -61,7 +61,7 @@ function generateChart(name, chart, width, height) {
 export class Chart extends React.Component {
   componentDidMount() {
     // TODO: We need to do more here about managing isFetching.
-    axios.get(metricApi.endpoints.GET_METRIC + this.props.chartName).then(response => {
+    axios.get(`${metricApi.endpoints.GET_METRIC}${this.props.chartName}/`).then(response => {
       generateChart(this.props.chartName, response.data, this.props.width, this.props.height);
     });
   }

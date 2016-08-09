@@ -1,18 +1,20 @@
 {
-  "metrics": [
-    {
-      "name": "architecture",
-      "description": "Some archy description."
-    },
-    {
-      "name": "bookmarks",
-      "description": "Bookmarks description."
-    },
-    {
-      "name": "sysmem",
-      "description": "A fascinating sysmem description."
-    }
-  ],
+  "metrics": {
+    "metrics": [
+      {
+        "name": "architecture",
+        "description": "Some archy description."
+      },
+      {
+        "name": "bookmarks",
+        "description": "Bookmarks description."
+      },
+      {
+        "name": "sysmem",
+        "description": "A fascinating sysmem description."
+      }
+    ]
+  },
   "architecture": {
     "numObs": 5321560,
     "type": "category",
