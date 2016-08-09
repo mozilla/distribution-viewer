@@ -18,7 +18,6 @@ ChartContainer.propTypes = {
   item: React.PropTypes.object.isRequired,
 }
 
-// TODO: Everything below should now be irrelevant yet it is.
 const mapStateToProps = function(store) {
   return {
     isDataReady: store.metricState.isDataReady,
