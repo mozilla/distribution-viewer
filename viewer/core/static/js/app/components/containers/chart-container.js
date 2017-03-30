@@ -81,6 +81,8 @@ class ChartContainer extends React.Component {
   }
 
   _setup(props) {
+    this.biggestPopulation = props.metric.populations[0]; // To start... we'll bubble up the actual biggest population later
+
     this.populationData = {};
     for (let i = 0; i < props.metric.populations.length; i++) {
       const population = props.metric.populations[i];
@@ -95,7 +97,7 @@ class ChartContainer extends React.Component {
       // If this population has the most data points so far, it's the biggest
       // population. We'll need to know which population is biggest when we set
       // the scales later.
-      if (!this.biggestPopulation || population.points.length > this.biggestPopulation.points.length) {
+      if (population.points.length > this.biggestPopulation.points.length) {
         this.biggestPopulation = population;
       }
 
