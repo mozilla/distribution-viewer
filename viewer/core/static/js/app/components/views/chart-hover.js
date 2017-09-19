@@ -8,7 +8,7 @@ import format from 'string-template';
 
 export default class extends React.Component {
   componentDidMount() {
-    let hoverElm = select(this.refs.rect);
+    let hoverElm = select(this.rect);
     this.focusElm = select(`.chart-${this.props.metricId} .focus`);
     this.bisector = d3Array.bisector(d => d.x).left;
 
@@ -20,7 +20,7 @@ export default class extends React.Component {
   }
   _handleMouseMove() {
     let props = this.props;
-    let x0 = props.xScale.invert(mouse(this.refs.rect)[0]);
+    let x0 = props.xScale.invert(mouse(this.rect)[0]);
 
     for (let populationName in props.populations) {
       if (props.populations.hasOwnProperty(populationName)) {
@@ -92,7 +92,7 @@ export default class extends React.Component {
   render() {
     return (
       <rect
-        ref="rect"
+        ref={c => this.rect = c}
         className="hover-zone"
         width={this.props.size.innerWidth}
         height={this.props.size.innerHeight}
