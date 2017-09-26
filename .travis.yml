@@ -1,1 +1,2 @@
 # Enable Travis, which is a prerequisite for running GreenKeeper.
+language: node_js
