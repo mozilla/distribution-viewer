@@ -1,2 +1,6 @@
 # Enable Travis, which is a prerequisite for running GreenKeeper.
 language: node_js
+node_js:
+    - "node"
+before_install:
+    - npm install --global npm@latest
