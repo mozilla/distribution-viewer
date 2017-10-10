@@ -1,7 +1,5 @@
 # Distribution Viewer
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/mozilla/distribution-viewer.svg)](https://greenkeeper.io/)
-
 The distribution viewer is a dashboard for viewing empirical cumulative
 distributions of the Unified Telemetry ping data.
 
