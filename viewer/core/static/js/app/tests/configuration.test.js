@@ -1,10 +1,12 @@
 import React from 'react';
+import Enzyme from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import sinon from 'sinon';
-import { shallow } from 'enzyme';
 
 import Configuration from '../components/views/configuration';
 
 
+Enzyme.configure({ adapter: new Adapter() });
 let outliersSpy, scaleSpy, configurationMock;
 
 describe('Configuration', () => {
@@ -12,7 +14,7 @@ describe('Configuration', () => {
     outliersSpy = sinon.spy();
     scaleSpy = sinon.spy();
 
-    configurationMock = shallow(
+    configurationMock = Enzyme.shallow(
       <Configuration
         whitelistedPopulations={['All']}
 
