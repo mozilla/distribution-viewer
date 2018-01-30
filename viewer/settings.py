@@ -104,13 +104,15 @@ USE_L10N = False
 
 USE_TZ = True
 
-SECURE_SSL_REDIRECT = config('SSL_REDIRECT', default=False, cast=bool)
-SECURE_HSTS_SECONDS = (60 * 60 * 24 * 365)
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
 
 def add_hsts_header(headers, path, url):
     headers['Strict-Transport-Security'] = 'max-age=%s' % SECURE_HSTS_SECONDS
+
+
+SECURE_SSL_REDIRECT = config('SSL_REDIRECT', default=False, cast=bool)
+SECURE_HSTS_SECONDS = (60 * 60 * 24 * 365)
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_CONTENT_TYPE_NOSNIFF = True
 
 
 WHITENOISE_ADD_HEADERS_FUNCTION = add_hsts_header
