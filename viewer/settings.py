@@ -106,6 +106,13 @@ SECURE_SSL_REDIRECT = config('SSL_REDIRECT', default=False, cast=bool)
 SECURE_HSTS_SECONDS = (60 * 60 * 24 * 365)
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
+
+def add_hsts_header(headers, path, url):
+    headers['Strict-Transport-Security'] = 'max-age=%s' % SECURE_HSTS_SECONDS
+
+
+WHITENOISE_ADD_HEADERS_FUNCTION = add_hsts_header
+
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.SessionAuthentication',
