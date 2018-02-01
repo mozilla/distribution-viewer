@@ -23,12 +23,14 @@ SITE_URL = config('SITE_URL', default='http://localhost:8000')
 STATIC_ROOT = config('STATIC_ROOT', default=os.path.join(BASE_DIR,
                                                          'staticfiles'))
 STATIC_URL = config('STATIC_URL', '/static/')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 LOGIN_URL = '/accounts/login/'
 
 # Application definition
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
     'django.contrib.admin.apps.SimpleAdminConfig',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,13 +44,13 @@ INSTALLED_APPS = [
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'viewer.middleware.CORSMiddleware',
 ]
 
 ROOT_URLCONF = 'viewer.urls'
@@ -102,9 +104,18 @@ USE_L10N = False
 
 USE_TZ = True
 
+
+def add_hsts_header(headers, path, url):
+    headers['Strict-Transport-Security'] = 'max-age=%s' % SECURE_HSTS_SECONDS
+
+
 SECURE_SSL_REDIRECT = config('SSL_REDIRECT', default=False, cast=bool)
 SECURE_HSTS_SECONDS = (60 * 60 * 24 * 365)
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_CONTENT_TYPE_NOSNIFF = True
+
+
+WHITENOISE_ADD_HEADERS_FUNCTION = add_hsts_header
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
