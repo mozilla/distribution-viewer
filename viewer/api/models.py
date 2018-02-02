@@ -50,8 +50,8 @@ class Metric(models.Model):
 
 
 class Collection(models.Model):
-    dataset = models.ForeignKey(DataSet)
-    metric = models.ForeignKey(Metric)
+    dataset = models.ForeignKey(DataSet, on_delete=models.CASCADE)
+    metric = models.ForeignKey(Metric, on_delete=models.CASCADE)
     num_observations = models.IntegerField()
     population = models.CharField(max_length=255)
 
@@ -66,7 +66,8 @@ class CategoryCollection(Collection):
 
 
 class CategoryPoint(models.Model):
-    collection = models.ForeignKey(CategoryCollection, related_name='_points')
+    collection = models.ForeignKey(CategoryCollection, on_delete=models.CASCADE,
+                                   related_name='_points')
     bucket = models.CharField(max_length=255)
     proportion = models.FloatField()
     rank = models.IntegerField()
@@ -79,6 +80,7 @@ class NumericCollection(Collection):
 
 
 class NumericPoint(models.Model):
-    collection = models.ForeignKey(NumericCollection, related_name='_points')
+    collection = models.ForeignKey(NumericCollection, on_delete=models.CASCADE,
+                                   related_name='_points')
     bucket = models.FloatField()
     proportion = models.FloatField()

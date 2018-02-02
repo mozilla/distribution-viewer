@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'viewer.api',
     'viewer.core',
+    'dockerflow.django',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -51,6 +52,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'dockerflow.django.middleware.DockerflowMiddleware',
 ]
 
 ROOT_URLCONF = 'viewer.urls'
