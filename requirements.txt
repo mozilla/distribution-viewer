@@ -4,7 +4,7 @@ PyOpenSSL==17.5.0
 contextlib2==0.5.5
 dj-database-url==0.4.2
 djangorestframework==3.7.7
-dockerflow==2017.11.0
+dockerflow==2018.2.1
 google-api-python-client==1.6.5
 gunicorn==19.7.1
 httplib2==0.10.3
