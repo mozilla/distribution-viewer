@@ -42,7 +42,7 @@
     "react-router": "3.2.1",
     "react-test-renderer": "16.2.0",
     "redux": "3.7.2",
-    "sinon": "4.4.5",
+    "sinon": "4.4.6",
     "string-template": "1.0.0",
     "striptags": "3.1.1",
     "uglifyjs-webpack-plugin": "1.2.3",
