@@ -1,9 +1,11 @@
 # Distribution Viewer
 
-The distribution viewer is a dashboard for viewing empirical cumulative
+Distribution Viewer was a dashboard for viewing empirical cumulative
 distributions of the Unified Telemetry ping data.
 
-[![Build](https://img.shields.io/circleci/project/mozilla/distribution-viewer.svg)](https://circleci.com/gh/mozilla/distribution-viewer/)
+Distribution Viewer is not currently deployed or maintained. If you have any
+questions about this service, please contact us using the contact information on
+our [team wiki](https://wiki.mozilla.org/Data/Tools).
 
 ## Table of contents
 
